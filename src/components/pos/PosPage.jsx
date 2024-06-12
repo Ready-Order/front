@@ -49,12 +49,12 @@ const PosPage = () => {
           const response = await axios.get(
             `${process.env.REACT_APP_API_ROOT}/api/orders/${idx}/bill`
           );
-          tableBills[idx] = response.data.total;
+          tableBills[idx] = await response.data.total;
         } catch (error) {
           console.log(error);
         }
-        setTableBills(tableBills);
       }
+      setTableBills(tableBills);
     };
     tableBillsInit();
 
